@@ -4,6 +4,7 @@
 .idea
 idea
 model_data
+model_data/**
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
