@@ -37,7 +37,9 @@ class FashionMNISTDataset(torch.utils.data.Dataset):
     tensor(5)
     """
 
-    def __init__(self, file):
+    def __init__(self, file, **kwargs):
+        self.transform = kwargs.get("transform")
+
         csv = pd.read_csv(file)
         x = csv.drop("label", axis=1).to_numpy()
         y = csv["label"].to_numpy()
@@ -49,4 +51,8 @@ class FashionMNISTDataset(torch.utils.data.Dataset):
         return len(self.y_train )
 
     def __getitem__(self, idx):
-        return self.X_train[idx], self.y_train[idx]
+        image = self.X_train[idx]
+        label = self.y_train[idx]
+        if self.transform:
+            image = self.transform(image)
+        return image, label
