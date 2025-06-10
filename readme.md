@@ -4,3 +4,5 @@ How to run the project?
 - Secondly you have to download all dependencies for the project, you can do it with command:
 ```uv sync --index-strategy unsafe-best-match```, index strategy parameter is made for newer GPU cards which
 are not supported yet by pytorch
+- Thirdly you have to provide two csv files (training and test dataset) of Fashion MNIST, you can download files from
+  Kaggle
